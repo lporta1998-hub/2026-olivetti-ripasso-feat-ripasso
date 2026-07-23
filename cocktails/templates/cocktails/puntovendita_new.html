@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_filters %}
 
 {% block content %}
 
@@ -6,8 +7,8 @@
 
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Invia">
+        {{ form | crispy }}
+        <input class="btn btn-info" type="submit" value="Invia">
     </form>
 
 {% endblock %}
