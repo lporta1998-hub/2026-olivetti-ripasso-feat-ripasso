@@ -1,5 +1,6 @@
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, UpdateView, DeleteView
+from cocktails.forms import PuntoVenditaPartialForm
 
 from cocktails.models import PuntoVendita
 
@@ -9,6 +10,7 @@ __all__ = [
     "PuntoVenditaListView",
     "PuntoVenditaUpdateView",
     "PuntoVenditaDeleteView",
+    "PuntoVenditaPartialUpdateView",
 ]
 
 
@@ -54,3 +56,10 @@ class PuntoVenditaDeleteView(DeleteView):
 
     success_url = reverse_lazy("puntovendita_list")
 
+class PuntoVenditaPartialUpdateView(UpdateView):
+    model = PuntoVendita
+    form_class = PuntoVenditaPartialForm
+    template_name = "cocktails/puntovendita_edit.html"
+
+    def get_success_url(self):
+        return reverse("puntovendita_detail", kwargs={"pk": self.object.pk})

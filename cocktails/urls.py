@@ -6,6 +6,7 @@ from cocktails.views import (
     PuntoVenditaListView,
     PuntoVenditaUpdateView,
     PuntoVenditaDeleteView,
+    PuntoVenditaPartialUpdateView,
 )
 
 urlpatterns = [
@@ -29,5 +30,10 @@ urlpatterns = [
             "punto-vendita/<int:pk>/delete/",
             PuntoVenditaDeleteView.as_view(),
             name="puntovendita_delete",
+        ),
+    path(
+            "punto-vendita/<int:pk>/partial-edit/",
+            PuntoVenditaPartialUpdateView.as_view(),
+            name="puntovendita_partial_edit",
         ),
 ]
