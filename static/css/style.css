@@ -1,0 +1,36 @@
+html {
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #121212;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .navbar {
+    background-color: #1e1e1e !important;
+}
+
+body.dark-mode .navbar a,
+body.dark-mode .navbar span,
+body.dark-mode .navbar button {
+    color: #ffffff;
+}
+
+body.light-mode .navbar {
+    background-color: #f8f9fa !important;
+}
+
+body.light-mode .navbar a,
+body.light-mode .navbar span,
+body.light-mode .navbar button {
+    color: #121212;
+}

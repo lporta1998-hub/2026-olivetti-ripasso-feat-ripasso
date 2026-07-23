@@ -1,6 +1,47 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a href="{% url 'puntovendita_list' %}">Lista punti vendita</a> |
-        <a href="{% url 'puntovendita_new' %}">Nuovo punto vendita</a>
+        <div class="d-flex gap-3 align-items-center">
+            <a href="{% url 'puntovendita_list' %}">Lista punti vendita</a>
+            <span>|</span>
+            <a href="{% url 'puntovendita_new' %}">Nuovo punto vendita</a>
+        </div>
+
+        <button class="btn btn-sm btn-outline-secondary" type="button" onclick="toggleDarkMode()">
+            <span id="modeIcon">🌙</span>
+            <span id="modeText">Dark Mode</span>
+        </button>
     </div>
+
+    <script>
+        const modeIcon = document.getElementById("modeIcon");
+        const modeText = document.getElementById("modeText");
+
+        function applyTheme() {
+            const darkMode = localStorage.getItem("darkMode");
+            const isDark = darkMode === "enabled";
+
+            document.body.classList.toggle("dark-mode", isDark);
+            document.body.classList.toggle("light-mode", !isDark);
+
+            if (modeIcon && modeText) {
+                modeIcon.textContent = isDark ? "🌞" : "🌙";
+                modeText.textContent = isDark ? "Light Mode" : "Dark Mode";
+            }
+        }
+
+        window.addEventListener("DOMContentLoaded", applyTheme);
+
+        function toggleDarkMode() {
+            const isDark = !document.body.classList.contains("dark-mode");
+            document.body.classList.toggle("dark-mode", isDark);
+            document.body.classList.toggle("light-mode", !isDark);
+
+            if (modeIcon && modeText) {
+                modeIcon.textContent = isDark ? "🌞" : "🌙";
+                modeText.textContent = isDark ? "Light Mode" : "Dark Mode";
+            }
+
+            localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+        }
+    </script>
 </nav>
