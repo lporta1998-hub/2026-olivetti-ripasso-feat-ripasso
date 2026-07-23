@@ -1,0 +1,7 @@
+    {% load crispy_forms_filters %}
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <input class="btn btn-info" type="submit" value="Invia">
+    </form>
