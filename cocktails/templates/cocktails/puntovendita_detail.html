@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{{ object }}</h1>
+
+    <p>Nome: {{ object.nome }}</p>
+    <p>Indirizzo: {{ object.indirizzo }}</p>
+
+    <p><a
+            href="{% url 'puntovendita_list' %}"
+            title="Torna alla lista"
+    >Torna alla lista</a> - <a
+            href="{% url 'puntovendita_edit' object.pk %}"
+    >Modifica</a></p>
+
+{% endblock %}

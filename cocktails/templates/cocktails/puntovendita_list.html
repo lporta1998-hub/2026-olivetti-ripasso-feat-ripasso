@@ -1,0 +1,22 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+<h1>Lista dei Punti vendita</h1>
+
+{% if object_list %}
+<ul>
+    {% for object in object_list %}
+        <li>{{ object }}
+            - <a href="{% url 'puntovendita_detail' object.pk %}"
+            >Dettaglio</a>
+            - <a href="{% url 'puntovendita_edit' object.pk %}"
+            >Modifica</a>
+        </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Non ci sono punti vendita!</p>
+{% endif %}
+    <p><a href="{% url 'puntovendita_new' %}">Nuovo</a></p>
+
+{% endblock %}

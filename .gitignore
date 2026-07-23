@@ -1,0 +1,39 @@
+.idea
+.vscode
+*.log
+*.log.*
+.py[oc]
+__pycache__/
+
+# configurations
+*.env
+!template*.env
+*.ini
+!template*.ini
+*.toml
+!pyproject.toml
+!ruff.toml
+!template*.toml
+
+# Certificates and Keys
+*.crt
+*.key
+*.pem
+
+# unittest and cobertura
+.coverage
+coverage.xml
+report.xml
+
+# docker and compose
+compose*.y*ml
+docker-compose*.y*ml
+
+db.sqlite3
+
+# environments
+.venv
+venv
+
+# prettier node_modules
+node_modules
