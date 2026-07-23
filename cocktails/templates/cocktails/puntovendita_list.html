@@ -13,6 +13,8 @@
             >Dettaglio</a>
             - <a href="{% url 'puntovendita_edit' object.pk %}"
             >Modifica</a>
+            - <a href="{% url 'puntovendita_delete' object.pk %}"
+            >Elimina</a>
         </li>
     {% endfor %}
 </ul>
